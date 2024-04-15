@@ -16,12 +16,12 @@ body {
     background-color: #fffded;
     display: grid; /* Change to grid */
     grid-template-rows: auto auto auto auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(12, 1fr); /* Use 12-column grid */
     grid-template-areas:
-        "header"
-        "nav"
-        "main"
-        "footer";
+        "header header header header header header header header header header header header"
+        "nav nav nav nav nav nav nav nav nav nav nav nav"
+        "main main main main main main main main main main main main"
+        "footer footer footer footer footer footer footer footer footer footer footer footer";
 }
 a:focus, a:hover {
 	font-style: italic;
@@ -30,6 +30,12 @@ a:focus, a:hover {
 header {
 	padding: 1.5em 0 2em 0;
 	border-bottom: 3px solid #931420;
+		background-image: -moz-linear-gradient(
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: -webkit-linear-gradient(
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
+	background-image: -o-linear-gradient(
+	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
 	background-image: linear-gradient(
 	    30deg, #f6bb73 0%, #f6bb73 30%, white 50%, #f6bb73 80%, #f6bb73 100%);
     grid-area: header; /* Grid area */
@@ -56,9 +62,8 @@ header img {
 	padding: 0;
     display: grid; /* Change to grid */
     grid-template-rows: auto;
-    grid-template-columns: repeat(5, 1fr);
-    align-items: center; /* Center vertically */
-    grid-area: nav; /* Grid area */
+    grid-template-columns: repeat(12, 1fr); /* Use 12-column grid */
+    grid-template-areas: "nav-start nav-start nav-start nav-start nav-start nav-start nav-start nav-start nav-start nav-start nav-start nav-start"; /* Use template area */
 }
 #nav_menu ul li a {
     display: block;
@@ -71,6 +76,7 @@ header img {
 }
 #nav_menu a.current {
 	color: yellow;
+    grid-area: nav-start; /* Grid area */
 }
 
 /* the styles for the section */
@@ -185,16 +191,4 @@ footer p {
 		column-count: 2;
 	}
 	#nav_menu {
-		display: none;
-	}
-	#mobile_menu {
-		display: block;
-	}
-	.slicknav_menu {
-		background-color: #800000 !important;
-	}
-}
-
-@media only screen and (max-width: 414px) {
-	body { font-size: 90%; }
-}
+		display
